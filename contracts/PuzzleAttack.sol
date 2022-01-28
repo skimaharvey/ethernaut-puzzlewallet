@@ -41,7 +41,7 @@ contract PuzzleAttack {
     function puzzleMulticall() public payable {
         uint256 times = 30;
         for (uint256 i = 0; i < times; i++) {
-            puzzleWallet.multicall();
+            puzzleWallet.multicall([]);
         }
     }
 }
